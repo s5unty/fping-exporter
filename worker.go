@@ -16,7 +16,7 @@ import (
 
 const (
 	//maxTargetsPerFping    = 100
-	defaultMinWait         = 10
+	defaultMinWait         = 1
 	startDelayMilliseconds = 1000
 )
 
@@ -83,7 +83,7 @@ func (w *Worker) cycleRun(sleepTime time.Duration) {
 	fpingArgs := []string{
 		"-q", // quiet
 		"-p", // period
-		fmt.Sprintf("%.0f", w.spec.period.Seconds()*500/float64(w.spec.count)),
+		fmt.Sprintf("%.0f", 1000.0),
 		"-C", // count
 		strconv.FormatUint(uint64(w.spec.count), 10),
 		"-i", // min-wait
